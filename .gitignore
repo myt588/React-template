@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# dotenv environment variables file
+.env
+
+# Mac files
+.DS_Store
+
+# Bower dependency directory (https://bower.io/)
+bower_components
