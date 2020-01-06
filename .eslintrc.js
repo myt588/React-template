@@ -14,11 +14,15 @@ module.exports = {
     'react/jsx-uses-react': 1,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 0,
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
     '@typescript-eslint/explicit-function-return-type': 0,
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
-    '@typescript-eslint/no-var-requires': 0
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-non-null-assertion': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0
   },
   globals: {
     process: true,

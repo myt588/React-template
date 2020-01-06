@@ -1,24 +1,24 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createGlobalStyle } from 'styled-components';
-import StaticText from './components/StaticText';
+import { Auth0Provider } from './Auth0';
+import App from './App';
+import history from './utils/history';
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Hiragino Sans", Meiryo, sans-serif;
-  }
-`;
+const onRedirectCallback = (appState: any) => {
+  history.push(appState && appState.targetUrl ? appState.targetUrl : window.location.pathname);
+};
 
 const render = () => {
   ReactDOM.render(
-    <>
-      <StaticText text="hello world" />
-      <GlobalStyle />
-    </>,
+    <Auth0Provider
+      domain={process.env.DOMAIN || ''}
+      client_id={process.env.CLIENT_ID || ''}
+      audience={process.env.AUTH0_AUDIENCE || ''}
+      redirect_uri={window.location.origin}
+      onRedirectCallback={onRedirectCallback}
+    >
+      <App />
+    </Auth0Provider>,
     document.getElementById('app')
   );
 };

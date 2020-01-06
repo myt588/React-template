@@ -1,16 +1,13 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-
-// const USER = (process.env.USER || '').replace(/_\./, '-');
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
 
 module.exports = merge(common, {
   devtool: 'inline-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
+      'process.env': JSON.stringify(dotenv.parsed)
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
