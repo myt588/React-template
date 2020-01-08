@@ -7,7 +7,7 @@ export function useFetch<T>(initialState: T, fetch: (token: string | undefined) 
 
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<T>(initialState);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
   const fetchData = async () => {
     setError(null);
