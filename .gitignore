@@ -13,3 +13,6 @@ dist
 
 # Bower dependency directory (https://bower.io/)
 bower_components
+
+# Coverage directory used by jest
+coverage
