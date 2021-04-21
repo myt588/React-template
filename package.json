@@ -8,8 +8,10 @@
     "build": "webpack --mode=production --config ./webpack.common.js",
     "test": "jest",
     "lint:js": "eslint './src/**/*.{ts,tsx}' --fix",
-    "prettier:all": "prettier --write \"./src/**/*.{js,jsx,ts,tsx}\"",
-    "format": "prettier --write '**/*.{ts,tsx,js}'"
+    "lint:style": "stylelint ./src/**/*.tsx --config .stylelint.config.js",
+    "prettier": "pretty-quick --staged --pattern 'src/**/*.tsx?'",
+    "format": "prettier --write '**/*.{ts,tsx,js}'",
+    "type-check": "tsc --noEmit -p ./tsconfig.json"
   },
   "author": "mytt",
   "license": "ISC",
@@ -37,9 +39,10 @@
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
     "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
     "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.0.0",
-    "eslint-config-prettier": "^8.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.0",
     "eslint-plugin-react-hooks": "^4.2.0",
@@ -51,6 +54,10 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "react-test-renderer": "^16.13.1",
+    "stylelint": "13.6.1",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "ts-jest": "^26.5.5",
     "ts-loader": "^9.0.2",
     "typescript": "^4.2.4",
@@ -65,15 +72,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "npm run prettier && npm run type-check && lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
       "npm run lint:js",
-      "npm run format",
-      "git add"
+      "npm run format"
     ]
   },
   "commitlint": {

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const babelOptions = require('./babel.config.js');
 
 module.exports = {
   entry: [`${__dirname}/src/index.tsx`],
@@ -28,10 +29,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread'],
-          },
+          options: babelOptions
         },
       },
     ],
