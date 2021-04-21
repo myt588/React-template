@@ -22,7 +22,7 @@ interface StyledProps {
 
 const StyledText = styled.div<StyledProps>`
   width: 100%;
-  color: ${props => props.textColor || '#333'};
-  font-size: ${props => props.fontSize || '14px'};
-  background-color: ${props => props.backgroundColor || '#fff'};
+  color: ${(props) => props.textColor || '#333'};
+  font-size: ${(props) => props.fontSize || '14px'};
+  background-color: ${(props) => props.backgroundColor || '#fff'};
 `;

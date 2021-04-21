@@ -6,8 +6,8 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   rules: {
     'react/jsx-uses-vars': 1,
@@ -18,17 +18,17 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 0,
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
-    '@typescript-eslint/no-var-requires': 0
+    '@typescript-eslint/no-var-requires': 0,
   },
   globals: {
     process: true,
     module: true,
-    app: true
+    app: true,
   },
   env: {
     jest: true,
     es6: true,
     browser: true,
-    node: true
-  }
+    node: true,
+  },
 };

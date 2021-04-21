@@ -5,6 +5,9 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
+# bundled folder
+dist
+
 # Mac files
 .DS_Store
 

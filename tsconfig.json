@@ -20,6 +20,6 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
   },
-  "include": [".storybook/**/*", "src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "build"]
 }

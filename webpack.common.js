@@ -9,19 +9,19 @@ module.exports = {
       filename: 'index.html',
       template: './template.html',
       inject: 'body',
-      chunksSortMode: 'none'
-    })
+      chunksSortMode: 'none',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        use: ['file-loader'],
       },
       {
         test: /\.m?js$/,
@@ -30,17 +30,17 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread']
-          }
-        }
-      }
-    ]
+            plugins: ['@babel/plugin-proposal-object-rest-spread'],
+          },
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  }
+    path: path.resolve(__dirname, 'dist'),
+  },
 };
