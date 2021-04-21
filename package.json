@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple template",
   "main": "index.js",
+  "engines": {
+    "node": "12.16.3"
+  },
   "scripts": {
     "start": "webpack serve --mode=development --config ./webpack.dev.js",
     "build": "webpack --mode=production --config ./webpack.common.js",
