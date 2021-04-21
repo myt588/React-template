@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['plugin:@typescript-eslint/recommended'],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   plugins: ['@typescript-eslint', 'react', 'react-hooks'],
   parserOptions: {
     sourceType: 'module',
